@@ -45,7 +45,7 @@
         nav_layer {
             display-name = "NAVIGATION";
             bindings = <
-&trans       &kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                          &mmv MOVE_UP                       &kp C_MUTE    &kp PG_DN  &kp UP     &kp PG_UP  &rgb_ug RGB_HUI  &to BASE
+&trans       &kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                          &mmv MOVE_UP                       &kp C_MUTE    &kp HOME   &kp UP     &kp END    &rgb_ug RGB_HUI  &to BASE
 &caps_word   &kp F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1            &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp C_VOL_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_ON
 &trans       &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &trans                  &mmv MOVE_DOWN                     &kp C_VOL_UP  &kp C_PREV &kp C_PP   &kp C_NEXT &rgb_ug RGB_BRD  &rgb_ug RGB_EFF
                               &trans   &kp LSHIFT &trans                                                                  &trans        &kp RSHIFT  &trans

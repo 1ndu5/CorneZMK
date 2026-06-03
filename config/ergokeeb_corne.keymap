@@ -19,13 +19,6 @@
         // Mod-tap used for the home-row Shift keys (A and ;)
     };
 
-    scroll_encoder: scroll_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-        tap-ms = <30>;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -37,20 +30,16 @@
 &kp LCTRL  &kp Z        &kp X  &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH         &kp RALT
                                &kp ESC  &mo NUM  &kp RET                                              &kp SPACE  &mo NAV  &kp LGUI
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         num_layer {
             display-name = "NUMBERS";
             bindings = <
-&trans    &kp N1     &kp N7  &kp N8         &kp N9          &kp PLUS                              &mmv MOVE_UP                       &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &to NAV
-&kp DEL   &kp EQUAL  &kp N4  &kp N5         &kp N6          &kp MINUS               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp RBRC   &kp DLLR   &kp PRCNT  &kp CARET &kp BSLH  &trans
-&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &trans                    &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &trans    &trans
-                             &trans         &mo BASE        &trans                                                                  &trans     &mo NAV    &trans
+&trans    &kp ASTRK  &kp N7  &kp N8         &kp N9          &kp PLUS                              &mmv MOVE_UP                       &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &to NAV
+&kp DEL   &kp EQUAL  &kp N4  &kp N5         &kp N6          &kp MINUS               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp RBRC   &kp DLLR   &kp PRCNT  &kp CARET &trans    &trans
+&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &trans                    &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &kp BSLH  &trans
+                             &trans         &kp LSHIFT      &trans                                                                  &trans     &kp RSHIFT  &trans
             >;
-
-            sensor-bindings = <&scroll_encoder>;
         };
 
         nav_layer {
@@ -59,10 +48,8 @@
 &trans       &kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                          &mmv MOVE_UP                       &kp C_MUTE    &kp PG_DN  &kp UP     &kp PG_UP  &rgb_ug RGB_HUI  &to BASE
 &caps_word   &kp F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1            &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp C_VOL_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_ON
 &trans       &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &trans                  &mmv MOVE_DOWN                     &kp C_VOL_UP  &kp C_PREV &kp C_PP   &kp C_NEXT &rgb_ug RGB_BRD  &rgb_ug RGB_EFF
-                              &trans   &mo BASE &trans                                                                  &trans        &mo NUM    &trans
+                              &trans   &kp LSHIFT &trans                                                                  &trans        &kp RSHIFT  &trans
             >;
-
-            sensor-bindings = <&scroll_encoder>;
         };
     };
 };

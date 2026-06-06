@@ -1,0 +1,14 @@
+# Defensive only — personal/binary files are meant to live in the OUTER folder
+# (CorneZMK/, the parent of this repo), so they normally never reach here.
+# This is a safety net in case something gets dropped into the repo by accident.
+
+# Compiled firmware / flashing artifacts
+*.uf2
+
+# Build logs and scratch notes
+faillog*.txt
+*.log
+
+# Local AI/editor context (kept in the outer folder)
+CLAUDE.md
+.claude/

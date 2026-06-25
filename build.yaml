@@ -31,3 +31,5 @@ include:
   - board: ergokeeb_corne_left
     shield: settings_reset
     #snippet: zmk-usb-logging
+  - board: ergokeeb_corne_right
+    shield: settings_reset

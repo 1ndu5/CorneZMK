@@ -17,15 +17,20 @@
 / {
     behaviors {
         // Tuned hold-tap for the home-row Shift keys (A and ;).
-        // require-prior-idle-ms forces a tap when you're mid-flow typing,
-        // which fixes fast rolls like "am" coming out as "M".
+        // flavor=balanced distinguishes a roll from a hold by RELEASE ORDER,
+        // which is what actually separates "am" (release a first -> tap) from
+        // "I"/"M" (release the letter first -> hold). require-prior-idle-ms is
+        // disabled: at 150 it forced nearly every in-flow capital (e.g. the
+        // mid-sentence "I") to a tap, because a capital and a roll both look
+        // like "Shift pressed right after a space" to the idle timer. If
+        // "am"-type rolls return, add a SMALL guard back (~30-50), not 150.
         hrm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
     };

@@ -16,9 +16,12 @@
 
 / {
     behaviors {
-        // Mod-tap used for the home-row Shift keys (A and ;).
+        // All hold-taps use the built-in &mt / &lt (no custom behaviors):
+        //   A|Shift and ;|Shift (home row), Z|Alt and /|Alt (bottom row),
+        //   F5|Shift on NAV, and Esc|NUM on the left middle thumb.
         // (Tried a tuned &hrm hold-tap to fix "am"->"M" rolls, but plain &mt
         //  gave fewer real-world errors for this typing style, so reverted.)
+        // Alt is always LALT: RALT acts as AltGr on UK/EU Windows layouts.
     };
 
     keymap {
@@ -27,30 +30,30 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB    &kp Q        &kp W  &kp E    &kp R  &kp T                              &kp UP                 &kp Y      &kp U  &kp I      &kp O    &kp P            &to NUM
+&kp TAB    &kp Q        &kp W  &kp E    &kp R  &kp T                              &kp UP                 &kp Y      &kp U  &kp I      &kp O    &kp P            &caps_word
 &kp BSPC   &mt LSHFT A  &kp S  &kp D    &kp F  &kp G                   &kp LEFT  &kp RET   &kp RIGHT  &kp H      &kp J  &kp K      &kp L    &mt RSHFT SEMI   &kp SQT
-&kp LCTRL  &kp Z        &kp X  &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH         &kp RALT
-                               &kp ESC  &mo NUM  &kp RET                                              &kp SPACE  &mo NAV  &kp LGUI
+&kp LCTRL  &mt LALT Z   &kp X  &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &kp DOT  &mt LALT FSLH    &kp RCTRL
+                               &kp LGUI &lt NUM ESC &kp RET                                           &kp SPACE  &mo NAV  &kp LGUI
             >;
         };
 
         num_layer {
             display-name = "NUMBERS";
             bindings = <
-&trans    &kp ASTRK  &kp N7  &kp N8         &kp N9          &kp PLUS                              &mmv MOVE_UP                       &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &to NAV
-&kp DEL   &kp EQUAL  &kp N4  &kp N5         &kp N6          &kp MINUS               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp RBRC   &kp DLLR   &kp PRCNT  &kp CARET &trans    &trans
-&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &trans                    &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &kp BSLH  &trans
-                             &trans         &kp LSHIFT      &trans                                                                  &trans     &kp RSHIFT  &trans
+&trans    &kp ASTRK  &kp N7  &kp N8         &kp N9          &kp PLUS                              &mmv MOVE_UP                       &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &none
+&kp DEL   &kp EQUAL  &kp N4  &kp N5         &kp N6          &kp MINUS               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp RBRC   &kp DLLR   &kp PRCNT  &kp CARET &none     &none
+&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &none                     &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &kp BSLH  &trans
+                             &trans         &none           &trans                                                                  &trans     &none       &trans
             >;
         };
 
         nav_layer {
             display-name = "NAVIGATION";
             bindings = <
-&trans       &kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                            &rgb_ug RGB_BRI                          &kp C_MUTE    &kp PG_UP  &kp UP     &kp PG_DN  &kp HOME  &to BASE
-&caps_word   &kp F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1            &rgb_ug RGB_HUI  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &kp C_VOL_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp END   &none
-&trans       &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &trans                    &rgb_ug RGB_BRD                          &kp C_VOL_UP  &kp C_PREV &kp C_PP   &kp C_NEXT &none     &trans
-                              &trans   &kp LSHIFT &trans                                                                  &trans        &kp RSHIFT  &trans
+&trans       &kp F1        &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                      &rgb_ug RGB_BRI                          &kp C_MUTE    &kp HOME   &kp UP     &kp END    &kp PG_UP  &none
+&kp DEL      &mt LSHFT F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1      &rgb_ug RGB_HUI  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &kp C_VOL_UP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &none
+&trans       &kp F9        &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &none              &rgb_ug RGB_BRD                          &kp C_VOL_DN  &kp C_PREV &kp C_PP   &kp C_NEXT &kp LALT   &kp RCTRL
+                                    &trans   &none    &trans                                                                    &trans        &none       &trans
             >;
         };
     };

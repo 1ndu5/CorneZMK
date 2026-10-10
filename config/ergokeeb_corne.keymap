@@ -16,11 +16,12 @@
 
 / {
     behaviors {
+        // GEN 5a (branch gen5a): backup variant of gen 5 with the gen 4 mod positions.
         // Hold-taps:
-        //   Z|Shift and /|Shift (bottom-row corners) and F9|Shift on NAV: built-in &mt.
+        //   A|Shift and ;|Shift (home row) and F5|Shift on NAV: built-in &mt.
         //   Esc|NUM on the left middle thumb: built-in &lt.
-        //   X|Alt and .|Alt: &slow_alt below.
-        // Shift moved off A and ; (gen 5) to stop "am"/"an"/"a " roll misfires. The Shift
+        //   Z|Alt and /|Alt: &slow_alt below.
+        // Gen 5 (master) moves Shift to Z and / and Alt to X and . instead. Either way the Shift
         // keys stay plain &mt: a tuned or guarded Shift breaks rolled capitals (tried and
         // reverted, see CLAUDE.md "Home-row-mod experiment").
         // Alt is always LALT: RALT acts as AltGr on UK/EU Windows layouts.
@@ -46,8 +47,8 @@
             display-name = "QWERTY";
             bindings = <
 &kp TAB    &kp Q        &kp W  &kp E    &kp R  &kp T                              &kp UP                 &kp Y      &kp U  &kp I      &kp O    &kp P            &caps_word
-&kp BSPC   &kp A        &kp S              &kp D    &kp F  &kp G                   &kp LEFT  &kp RET   &kp RIGHT  &kp H      &kp J  &kp K      &kp L               &kp SEMI         &kp SQT
-&kp LCTRL  &mt LSHFT Z  &slow_alt LALT X   &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &slow_alt LALT DOT  &mt RSHFT FSLH   &kp RCTRL
+&kp BSPC   &mt LSHFT A        &kp S    &kp D    &kp F  &kp G                   &kp LEFT  &kp RET   &kp RIGHT  &kp H      &kp J  &kp K      &kp L    &mt RSHFT SEMI        &kp SQT
+&kp LCTRL  &slow_alt LALT Z   &kp X    &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &kp DOT  &slow_alt LALT FSLH   &kp RCTRL
                                &kp LGUI &lt NUM ESC &kp RET                                           &kp SPACE  &mo NAV  &kp LGUI
             >;
         };
@@ -66,8 +67,8 @@
             display-name = "NAVIGATION";
             bindings = <
 &trans       &kp F1        &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                      &rgb_ug RGB_BRI                          &kp C_MUTE    &kp HOME   &kp UP     &kp END    &kp PG_UP  &rgb_ug RGB_HUI
-&kp DEL      &kp F5        &kp F6   &kp F7   &kp F8   &bt BT_SEL 1      &rgb_ug RGB_HUI  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &kp C_VOL_UP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &rgb_ug RGB_HUD
-&trans       &mt LSHFT F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &none              &rgb_ug RGB_BRD                          &kp C_VOL_DN  &kp C_PREV &kp C_PP   &kp C_NEXT &kp LALT   &kp RCTRL
+&kp DEL      &mt LSHFT F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1      &rgb_ug RGB_HUI  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &kp C_VOL_UP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &rgb_ug RGB_HUD
+&trans       &kp F9        &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &none              &rgb_ug RGB_BRD                          &kp C_VOL_DN  &kp C_PREV &kp C_PP   &kp C_NEXT &kp LALT   &kp RCTRL
                                     &trans   &none    &trans                                                                    &trans        &none       &trans
             >;
         };

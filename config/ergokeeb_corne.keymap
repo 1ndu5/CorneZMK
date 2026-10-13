@@ -47,9 +47,12 @@
             bindings = <
 &kp TAB    &kp Q        &kp W  &kp E    &kp R  &kp T                              &kp UP                 &kp Y      &kp U  &kp I      &kp O    &kp P            &caps_word
 &kp BSPC   &kp A        &kp S              &kp D    &kp F  &kp G                   &kp LEFT  &kp RET   &kp RIGHT  &kp H      &kp J  &kp K      &kp L               &kp SEMI         &kp SQT
-&kp LCTRL  &mt LSHFT Z  &slow_alt LALT X   &kp C    &kp V  &kp B       &none                 &kp DOWN             &kp N      &kp M  &kp COMMA  &slow_alt LALT DOT  &mt RSHFT FSLH   &kp RCTRL
+&kp LCTRL  &mt LSHFT Z  &slow_alt LALT X   &kp C    &kp V  &kp B       &kp C_MUTE            &kp DOWN             &kp N      &kp M  &kp COMMA  &slow_alt LALT DOT  &mt RSHFT FSLH   &kp RCTRL
                                &kp LGUI &lt NUM ESC &kp RET                                           &kp SPACE  &mo NAV  &kp LGUI
             >;
+            // Roller (rotary encoder next to B; only fitted on some boards): turn = volume
+            // (clockwise = up), click = mute. The click is key position 34, the spot next to B.
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         num_layer {
@@ -57,9 +60,10 @@
             bindings = <
 &trans    &kp ASTRK  &kp N7  &kp N8         &kp N9          &kp PLUS                              &mmv MOVE_UP                       &kp LBKT   &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &none
 &kp DEL   &kp EQUAL  &kp N4  &kp N5         &kp N6          &kp MINUS               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT  &kp RBKT   &kp DLLR   &kp PRCNT  &kp CARET &none     &none
-&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &none                     &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &kp BSLH  &trans
+&trans    &kp N0     &kp N1  &kp N2         &kp N3          &kp DOT     &trans                    &mmv MOVE_DOWN                     &kp GRAVE  &kp EXCL   &kp AT     &kp HASH  &kp BSLH  &trans
                              &trans         &none           &trans                                                                  &trans     &none       &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         nav_layer {
@@ -67,9 +71,10 @@
             bindings = <
 &trans       &kp F1        &kp F2   &kp F3   &kp F4   &bt BT_SEL 0                      &rgb_ug RGB_BRI                          &kp C_MUTE    &kp HOME   &kp UP     &kp END    &kp PG_UP  &rgb_ug RGB_HUI
 &kp DEL      &kp F5        &kp F6   &kp F7   &kp F8   &bt BT_SEL 1      &rgb_ug RGB_HUI  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &kp C_VOL_UP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &rgb_ug RGB_HUD
-&trans       &mt LSHFT F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &none              &rgb_ug RGB_BRD                          &kp C_VOL_DN  &kp C_PREV &kp C_PP   &kp C_NEXT &kp LALT   &kp RCTRL
+&trans       &mt LSHFT F9  &kp F10  &kp F11  &kp F12  &bt BT_SEL 2  &trans             &rgb_ug RGB_BRD                          &kp C_VOL_DN  &kp C_PREV &kp C_PP   &kp C_NEXT &kp LALT   &kp RCTRL
                                     &trans   &none    &trans                                                                    &trans        &none       &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
